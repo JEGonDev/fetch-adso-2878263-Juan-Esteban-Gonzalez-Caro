@@ -1,6 +1,6 @@
 const url = "https://thesimpsonsquoteapi.glitch.me/quotes"
-const containerCards = document.querySelector(".container-cards")
-const btnGeneretaCard = document.querySelector("#generate-card")
+const containerCards = document.querySelector(".cards-container")
+const btnGenerateCard = document.querySelector("#generate-card")
 const btnGenerateMultiple = document.querySelector("#generate-multiple")
 
 const generateCards = () => {
@@ -15,6 +15,10 @@ const getCharacter = async () => {
     const data = await response.json()  
     makeCharacter(data[0])
 }
+
+fetch(url)
+.then(response => response.json())
+.then(data => console.log(data))
 
 const makeCharacter = (myCharacter) => {
     const card = document.createElement("div")
@@ -42,6 +46,5 @@ const makeCharacter = (myCharacter) => {
     containerCards.appendChild(card)
 }
 
-btnGeneretaCard.addEventListener("click", getCharacter)
+btnGenerateCard.addEventListener("click", getCharacter)
 btnGenerateMultiple.addEventListener("click", generateCards)
-
