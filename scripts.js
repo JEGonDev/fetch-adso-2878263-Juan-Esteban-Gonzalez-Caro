@@ -2,10 +2,11 @@ const url = "https://thesimpsonsquoteapi.glitch.me/quotes"
 const containerCards = document.querySelector(".cards-container")
 const btnGenerateCard = document.querySelector("#generate-card")
 const btnGenerateMultiple = document.querySelector("#generate-multiple")
+const inputCharacter = document.querySelector("#input-character");
 
 const generateCards = () => {
     let counter = parseInt(prompt("¿Cuantas cards deseas crear?"))
-    for (let i = 1; i < counter; i++) {
+    for (let i = 0; i < counter; i++) {
         getCharacter()
     }
 }
@@ -15,10 +16,6 @@ const getCharacter = async () => {
     const data = await response.json()  
     makeCharacter(data[0])
 }
-
-fetch(url)
-.then(response => response.json())
-.then(data => console.log(data))
 
 const makeCharacter = (myCharacter) => {
     const card = document.createElement("div")
@@ -46,5 +43,25 @@ const makeCharacter = (myCharacter) => {
     containerCards.appendChild(card)
 }
 
+const getCharacterByName = () => {
+    
+    const characterName = inputCharacter.value.toLowerCase().trim();
+    // Selecciona todas las cards dentro del contenedor
+    const cards = containerCards.querySelectorAll(".card");
+    
+    cards.forEach(card => {
+        // Obtener el nombre del personaje de la card
+        const nameCard = card.querySelector("h3").textContent.toLowerCase().trim();
+        
+        // Mostrar la card si el nombre incluye el texto de búsqueda
+        if (nameCard.includes(characterName)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+};
+
 btnGenerateCard.addEventListener("click", getCharacter)
 btnGenerateMultiple.addEventListener("click", generateCards)
+inputCharacter.addEventListener("input", getCharacterByName)
