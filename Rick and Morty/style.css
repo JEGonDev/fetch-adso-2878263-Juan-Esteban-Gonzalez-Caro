@@ -1,103 +1,122 @@
-body {  
-    margin: 0;  
-    padding: 0;  
-    display: flex;  
-    flex-direction: column;  
-    align-items: center;  
-    background: linear-gradient(to right, #ff7e5f, #feb47b);  
-    font-family: 'Arial', sans-serif;  
-}  
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
 
-header {  
-    width: 100%;  
-    height: 10rem;  
-    background-image: url('path/to/your/banner-image.jpg');  
-    background-size: cover;  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-}  
+* {
+    margin: 0;
+    padding: 0;
+}
 
-h1 {  
-    font-size: 5rem;  
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
-    color: white;  
-    animation: colorChange 3s infinite;  
-}   
+body {
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(90deg, #000000, #2e3a42, #032750);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-hr {  
-    width: 90%;  
-    margin: 1rem 0;  
-}  
+header {
+    width: 100%;
+    height: 10rem;
+    background-image: url("assets/images/banner.jpg");
+    background-size: contain;
+}
 
-main {  
-    margin-top: 1rem;  
-    width: 100%;  
-    display: flex;  
-    flex-direction: column;  
-    align-items: center;  
-}  
+h1 {
+    font-size: 5rem;
+    text-shadow: 0 0 15px #ffff00;
+    color: #00ffff;
+    animation: title 1s infinite;
+    font-family: "Delicious Handrawn", cursive;
+}
 
-#finder {  
-    width: 30rem;  
-    height: 3rem;  
-    font-size: 1.5rem;  
-    border-radius: 20px;  
-    padding: 0.5rem;  
-    border: 1px solid #ccc;  
-    background-color: #fff;  
-}  
+@keyframes title {
+    50% {
+        text-shadow: 0 0 15px, #00ffff;
+        color: #ffff00;
+    }
+}
 
-.container-cards {  
-    width: 100%;  
-    display: flex;  
-    flex-wrap: wrap;  
-    justify-content: center;  
-}  
+hr {
+    width: 90%;
+    margin: 1rem;
+}
 
-.card {  
-    width: 20rem;  
-    height: 30rem;  
-    background-color: #6a5acd;  
-    border-radius: 10px;  
-    margin: 1rem;  
-    display: flex;  
-    flex-direction: column;  
-    overflow: hidden;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-}  
+main {
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.card img {  
-    width: 100%;  
-    height: 50%;  
-    object-fit: cover;  
-}  
+}
 
-.description-card {  
-    padding: 1rem;  
-    display: flex;  
-    flex-direction: column;  
-    justify-content: center;  
-    align-items: center;  
-}  
+.finder-character {
+    width: 30rem;
+    height: 1rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    background-color: #2e3a42;
+    padding: 1rem;
+    color: #ffffff;
+    font-family: "delicius handrawn", cursive;
+}
 
-.description-card h2 {  
-    text-align: center;  
-    color: yellow;  
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
-}  
+.container-cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-.description-card p {  
-    font-size: 1.5rem;  
-    color: #fff;  
-}  
+.card-character {
+    width: 20rem;
+    height: 10rem;
+    background-color: #261b36;
+    border: groove 5px #808080;
+    margin: 1rem;
+    display: flex;
+}
 
-footer {  
-    width: 100%;  
-    height: 3rem;  
-    background-color: #333;  
-    color: white;  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-}  
+.card-character>img {
+    width: 50%;
+    height: 100%;
+}
+
+.card-character>.description-card {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description-card>h2 {
+    text-align: center;
+    color: #ffff00;
+    text-shadow: 0 0 15px #ffff;
+}
+
+.description-card>p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #00ffff;
+    margin-top: 2rem;
+}
+
+footer {
+    width: 100%;
+    height: 3rem;
+    background-color: #03275e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+}
+
+footer>a {
+    color: #ffff;
+}
