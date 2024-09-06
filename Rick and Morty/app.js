@@ -41,6 +41,7 @@ const generateAllCharacters = async () => {
     data.map(character => createCards(character))
 }
 
+// filtrar personajes por el nombre
 const getCharacterByName = async (event) => {
     containerCards.innerHTML = ""
     const data = await getAPI(URL2 + event.target.value)
@@ -49,4 +50,3 @@ const getCharacterByName = async (event) => {
 
 window.addEventListener("DOMContentLoaded", generateAllCharacters)
 txtCharacter.addEventListener("keyup", getCharacterByName)
-// filtrar personajes por el nombre
